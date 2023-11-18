@@ -1,0 +1,164 @@
+.app-parent {
+  padding: 64px;
+}
+
+.App {
+  text-align: center;
+  width: 400px;
+  height: 85vh;
+  border: 1px solid black;
+  border-radius: 16px;
+  margin-top: 24px;
+  margin: auto;
+  background-color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.landing-page {
+  height: 100%;
+}
+
+.section-top {
+  height: 50%;
+  padding: 100px 64px;
+  box-sizing: border-box;
+}
+
+.section-top  h2, h5 {
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+.section-bottom {
+  height: 50%;
+}
+
+.section-bottom img {
+  max-width: 85%;
+  margin: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+
+.section-bottom button {
+  width: 150px;
+  padding: 12px 8px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* form container styles */
+.form-container {
+  height: 100%;
+  margin-top: 64px;
+}
+
+.form-container .form-field {
+  margin: 8px;
+}
+
+.form-container .form-field input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #e1d7d7;
+}
+
+.form-container .form-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #e1d7d7;
+}
+
+.form-container .form-field button {
+  width: 150px;
+  padding: 12px 8px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* candidate list view styles */
+.candidate-list-view {
+  height: 100%;
+}
+
+.candidate-view-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 16px;
+}
+
+.candidate-view-header-left h2, p{
+  margin: 0;
+}
+
+.candidate-view-header-right{
+  display: flex;
+  align-items: center;
+}
+
+.candidate-view-header-right input{
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #e1d7d7;
+}
+
+.candidate-view-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 16px;
+  box-sizing: border-box;
+  height: 80%;
+  overflow: scroll;
+}
+
+.candidate-view-body .card {
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+}
