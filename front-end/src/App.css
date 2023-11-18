@@ -49,6 +49,8 @@
 }
 
 
+/* landing page style */
+
 .landing-page {
   height: 100%;
 }
@@ -75,6 +77,24 @@
   border-radius: 8px;
 }
 
+.section-bottom .connect {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 4px;
+  background-color: #dbdbdb;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.connect-wrapper {
+  display: flex;
+  gap: 12px;
+  width: 85%;
+  margin: auto;
+  margin-top: 12px;
+}
 
 .section-bottom button {
   width: 150px;

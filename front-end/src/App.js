@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='app-parent'>
       <div className="App">
-        <CandidateList />
+        <LandingPage />
       </div>
     </div>
   );
