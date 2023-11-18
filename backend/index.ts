@@ -33,16 +33,14 @@ app.use((req, res, next) => {
 // endpoint for the frontend to fetch the reclaim template using sdk.
 app.get("/request-proofs", async (req, res) => {
     try {
-        const {userAddr: userAddr} = req.query;
         const db = client.db();
         const callbackCollection = db.collection('election-before-election');
         const request = reclaim.requestProofs({
             title: "Election Before Election",
             baseCallbackUrl: callbackUrl,
-            // contextAddress: userAddr as string,
             requestedProofs: [
                 new reclaim.CustomProvider({
-                    provider: 'google-login',
+                    provider: 'uidai-aadhar',
                     payload: {}
                 }),
             ],
@@ -138,7 +136,7 @@ app.get("/get-proofs/", async (req, res) => {
 app.get("/get-candidates/", async (req, res) => {
     try {
         const db = client.db();
-        const candidatesCollection = db.collection('ebe-candidates');
+        const candidatesCollection = db.collection('ebe-candidates-0');
         const candidates = await candidatesCollection.find().toArray();
         console.log(candidates);
         res.status(200).json(candidates);
@@ -148,11 +146,19 @@ app.get("/get-candidates/", async (req, res) => {
     }
 });
 
-// app.get("/register-candidate", async (req, res) => {
-//     try {
-
-//     }
-// )
+app.get("/register-candidate", async (req, res) => {
+    try {
+        const {candidateName: candidateName, candidateUID: candidateUID, candidateDetails: candidateDetails} = req.query;
+        const db = client.db();
+        const candidatesCollection = db.collection('ebe-candidates-0');
+        const result = await candidatesCollection.insertOne({candidateName: candidateName, candidateUID: candidateUID, candidateDetails: candidateDetails});
+        console.log(result);
+        res.status(200).json({msg: "Candidate registered successfully"});
+    } catch (error) {
+        console.error("[Register-Candidate -- TEMP] -- Error: ", error);
+        res.status(500).json({msg: "DB not Connected/web3 error"});
+    }
+});
 
 // Start the Express.js App
 app.listen(port, async () => {
