@@ -1,0 +1,11 @@
+.modal-wrapper {
+  position: absolute;
+  width: 400px;
+  height: 85vh;
+}
+
+.modal-overlay {
+  opacity: 0.5;
+  background-color: gray;
+  height: 100%;
+}
