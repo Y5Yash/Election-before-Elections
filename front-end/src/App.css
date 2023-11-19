@@ -56,7 +56,7 @@
 }
 
 .section-top {
-  height: 50%;
+  height: 45%;
   padding: 100px 64px;
   box-sizing: border-box;
 }
@@ -67,7 +67,7 @@
 }
 
 .section-bottom {
-  height: 50%;
+  height: 55%;
 }
 
 .section-bottom img {
@@ -83,13 +83,14 @@
   align-items: center;
   gap: 4px;
   background-color: #dbdbdb;
-  padding: 8px 16px;
+  padding: 6px 16px;
   box-sizing: border-box;
   border-radius: 8px;
 }
 
 .connect-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 12px;
   width: 85%;
   margin: auto;
@@ -110,6 +111,7 @@
 .form-container {
   height: 100%;
   margin-top: 64px;
+  padding: 12px 48px;
 }
 
 .form-container .form-field {
@@ -181,4 +183,19 @@
   width: 150px;
   margin: 10px;
   text-align: center;
+  border: 1px solid #eaeaea;
+}
+
+.candidate-view-body .card img{
+  border-radius: 4px;
+}
+
+.candidate-view-body .card button{
+  padding: 2px 16px;
+  margin-top: 8px;
+}
+
+.skip-btn {
+  background-color: white;
+  text-decoration: underline;
 }

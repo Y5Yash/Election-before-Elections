@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CandidateList = () => {
   const constituencyName = "Miyapur";
@@ -6,13 +6,14 @@ const CandidateList = () => {
   const profileImageUrl = "https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png"; // Replace with actual profile image URL
 
   const candidates = [
-    { id: 1, name: "Candidate 1", votes: 200, imageUrl: "https://picsum.photos/200" },
-    { id: 2, name: "Candidate 2", votes: 180, imageUrl: "https://picsum.photos/200" },
-    { id: 3, name: "Candidate 3", votes: 150, imageUrl: "https://picsum.photos/200" },
-    { id: 4, name: "Candidate 4", votes: 120, imageUrl: "https://picsum.photos/200" },
-    { id: 5, name: "Candidate 5", votes: 100, imageUrl: "https://picsum.photos/200" },
-    { id: 6, name: "Candidate 6", votes: 80, imageUrl: "https://picsum.photos/200" },
+    { id: 1, name: "Candidate 1", votes: 200, imageUrl: "./dummy-user.png" },
+    { id: 2, name: "Candidate 2", votes: 180, imageUrl: "./dummy-user.png" },
+    { id: 3, name: "Candidate 3", votes: 150, imageUrl: "./dummy-user.png" },
+    { id: 4, name: "Candidate 4", votes: 120, imageUrl: "./dummy-user.png" },
+    { id: 5, name: "Candidate 5", votes: 100, imageUrl: "./dummy-user.png" },
+    { id: 6, name: "Candidate 6", votes: 80, imageUrl: "./dummy-user.png" },
   ];
+
 
   return (
     <div className='candidate-list-view'>
@@ -46,6 +47,7 @@ const CandidateList = () => {
             <div style={{ backgroundColor: '#f0f0f0', padding: '8px' }}>
               <p>{candidate.name}</p>
               <p>{`Votes: ${candidate.votes}`}</p>
+              <button>Vote</button>
             </div>
           </div>
         ))}

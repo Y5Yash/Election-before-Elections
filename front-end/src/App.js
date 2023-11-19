@@ -12,7 +12,7 @@ const backendProofUrl = "https://election-before-election.onrender.com/get-proof
 const callbackId = "8aeacd2d-b5e5-47df-8251-a2799212c935"; // hardcoded for now
 
 function App() {
-  const [appState, setAppState] = useState("landing");
+  const [appState, setAppState] = useState("nominate");
   const [proofObj, setProofObj] = useState();
   const [claimData, setClaimData] = useState();
 
@@ -43,8 +43,7 @@ function App() {
       <div className="App">
         {(appState==="landing") && 
         <>
-          <LandingPage />
-          <button onClick={fetchProof}>Fetch Proof</button> 
+          <LandingPage fetchProof={fetchProof} />
         </>}
 
         {(appState==="nominate") && 
