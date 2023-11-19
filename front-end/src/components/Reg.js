@@ -32,7 +32,6 @@ const Register = ({proofObj, claimData, setAppState}) => {
             console.log(identity);
             console.log('Successful - register prepare: ', data);
             setIsPrepared(true);
-            setAppState("candidate-list");
         },
         onError(error) {
             console.log('Error in verify Proof: ', error);
@@ -44,7 +43,8 @@ const Register = ({proofObj, claimData, setAppState}) => {
 
     return (
         <div>
-            <button onClick={()=>{contractWrite.write?.()}}>Register</button>
+            {!contractWrite.isSuccess && <button onClick={()=>{contractWrite.write?.()}}>Register</button>}
+            {contractWrite.isSuccess && <button onClick={()=>{setAppState("candidate-list")}}>Go to candidate list</button>}
         </div>
     )
 }
