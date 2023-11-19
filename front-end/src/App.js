@@ -5,6 +5,7 @@ import LandingPage from './components/landing';
 import NominationForm from './components/Nominate';
 import CandidateList from './components/candidate-list';
 import Register from './components/Reg.js';
+import Vote from './components/vote.js';
 import { ethers } from 'ethers';
 // import Register from './components/register.component';
 
@@ -15,6 +16,8 @@ function App() {
   const [appState, setAppState] = useState("landing");
   const [proofObj, setProofObj] = useState();
   const [claimData, setClaimData] = useState();
+  const [candidateHash, setCandidateHash] = useState();
+  const [identity, setIdentity] = useState();
 
   const fetchProof = async () => {
     try {
@@ -54,10 +57,20 @@ function App() {
 
         {(appState==="register") &&
         <>
-          <Register proofObj={proofObj} claimData={claimData} setAppState={setAppState}/>
+          <Register proofObj={proofObj} claimData={claimData} setAppState={setAppState} identity={identity} setIdentity={setIdentity}/>
         </>}
 
-        {(appState==="candidate-list") && <CandidateList />}
+        {(appState==="candidate-list") && 
+        <>
+          <CandidateList setAppState={setAppState} setCandidateHash={setCandidateHash}/>
+        </>
+        }
+
+        {(appState==="vote") && 
+        <>
+         <Vote setAppState={setAppState} candidateHash={candidateHash} identity={identity}/> 
+        </>
+        }
       </div>
     </div>
   );

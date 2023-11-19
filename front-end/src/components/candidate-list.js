@@ -1,6 +1,7 @@
 import React from 'react';
+import { keccak256 } from 'viem'
 
-const CandidateList = () => {
+const CandidateList = ({setAppState, setCandidateHash}) => {
   const constituencyName = "Miyapur";
   const numberOfVoters = '135k'; // Replace with actual number of voters
   const profileImageUrl = "https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png"; // Replace with actual profile image URL
@@ -13,6 +14,12 @@ const CandidateList = () => {
     { id: 5, name: "Candidate 5", votes: 100, imageUrl: "https://picsum.photos/200" },
     { id: 6, name: "Candidate 6", votes: 80, imageUrl: "https://picsum.photos/200" },
   ];
+
+  const voteFor = (name) => () => {
+    console.log(name);
+    setCandidateHash(keccak256(name));
+    setAppState("vote");
+  }
 
   return (
     <div className='candidate-list-view'>
@@ -47,6 +54,8 @@ const CandidateList = () => {
               <p>{candidate.name}</p>
               <p>{`Votes: ${candidate.votes}`}</p>
             </div>
+
+            <button onClick={voteFor(candidate.name)}>Vote</button>
           </div>
         ))}
       </div>

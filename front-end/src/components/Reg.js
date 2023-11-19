@@ -7,8 +7,7 @@ import { Identity } from "@semaphore-protocol/identity";
 const backendProofUrl = "https://election-before-election.onrender.com/get-proofs"
 const callbackId = "8aeacd2d-b5e5-47df-8251-a2799212c935"; // hardcoded for now
 
-const Register = ({proofObj, claimData, setAppState}) => {
-    const [identity, setIdentity] = useState();
+const Register = ({proofObj, claimData, setAppState, identity, setIdentity}) => {
     const [isPrepared, setIsPrepared] = useState(false);
 
     useEffect(() => {
