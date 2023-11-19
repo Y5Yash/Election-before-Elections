@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const NominationForm = () => {
+const NominationForm = ({setAppState}) => {
   const [name, setName] = useState('');
   const [aadhar, setAadhar] = useState('');
   const [description, setDescription] = useState('');
@@ -35,6 +35,7 @@ const NominationForm = () => {
       description,
       image,
     });
+    setAppState("register")
   };
 
   return (
