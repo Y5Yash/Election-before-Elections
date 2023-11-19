@@ -17,10 +17,8 @@ const StyledLoaderWrapper = styled.div`
   animation: ${LogoAnimate} 1.5s linear infinite;
 `;
 
-const Loader = React.forwardRef(function Loader (props, ref) {
-  const { height, width, margin, color } = props;
+export function LoaderSVG ({width, height, color, ref}) {
   return (
-  <StyledLoaderWrapper margin={margin}>
     <svg ref={ref} width={width} height={height} viewBox="0 0 152 176" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}>
         <path d="M38.1419 1.21279C38.2881 0.542986 38.9625 0 39.6481 0H73.1654C73.851 0 74.2881 0.542986 74.1419 1.21279L66.9902 33.9582C66.844 34.628 66.1696 35.171 65.484 35.171H31.9667C31.2812 35.171 30.844 34.628 30.9902 33.9582L38.1419 1.21279Z" fill={color} />
@@ -28,6 +26,13 @@ const Loader = React.forwardRef(function Loader (props, ref) {
         <path d="M30.3775 42.4477C29.6919 42.4477 29.0175 42.9907 28.8712 43.6605L0.264753 174.642C0.118464 175.312 0.555663 175.855 1.24126 175.855H34.7585C35.4441 175.855 36.1185 175.312 36.2648 174.642L64.8712 43.6605C65.0175 42.9907 64.5803 42.4477 63.8947 42.4477H30.3775Z" fill={color} />
       </g>
     </svg>
+  );
+}
+const Loader = React.forwardRef(function Loader (props, ref) {
+  const { height, width, margin, color } = props;
+  return (
+  <StyledLoaderWrapper margin={margin}>
+    <LoaderSVG height={height} width={width} color={color} ref={ref}  />
   </StyledLoaderWrapper>
 
   );

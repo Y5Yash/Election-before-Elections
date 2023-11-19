@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LoaderSVG } from './design-components/Loader';
 
 const NominationForm = ({setAppState}) => {
   const [name, setName] = useState('');
@@ -37,13 +38,19 @@ const NominationForm = ({setAppState}) => {
     });
     setAppState("register")
   };
+  const handleSkip = () => {
+    setAppState('candidate-list');
+  }
 
   return (
     <div className='form-container'>
       {/* Logo */}
-      <img src="logo.png" alt="Logo" width="64" height="64" style={{ display: 'block', margin: 'auto' }} />
-
+      <LoaderSVG  width="64" height="64" color='#e1f1ff' />
+      <br />
+      <br />
+      <br />
       {/* Name TextInput */}
+      <h3>Nomination Form</h3>
       <div className='form-field name-input'>
         <input placeholder='Name' type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
@@ -64,6 +71,8 @@ const NominationForm = ({setAppState}) => {
       {/* Submit Button */}
       <div className='form-field submit-button'>
         <button type="submit" onClick={handleSubmit}>Submit</button>
+        <button className='skip-btn' onClick={handleSkip}>Skip</button>
+
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { Modal } from "./design-components/modal";
 
 const BACKEND_URL = 'https://election-before-election.onrender.com';
 
-export default function LandingPage() {
+export default function LandingPage({fetchProof}) {
 
   const [QRLink, setQRLink] = useState();
   const [isModalOpen, setModalOpen] = useState(false);
@@ -52,8 +52,11 @@ export default function LandingPage() {
       <div className="section-bottom">
         <img src='./public-gathering.jpeg' alt='home' />
         <div className="connect-wrapper">
-          <div className="connect connect-metamask" onClick={handleMetaMaskClick}><img height={32} width={32} src= './MetaMask_Fox.png' alt='Metamask' />{metaMaskAddress ? 'Disconnect' :'Connect'}</div>
-          <div className="connect connect-nation-id" onClick={handleConnectProvider}><img height={32} width={32} src= './Aadhaar_Logo.png' alt='Metamask' />Connect <br/>(Nation ID)</div>
+          <div style={{ display: 'flex', gap:'8px' }}>
+            <div className="connect connect-metamask" onClick={handleMetaMaskClick}><img height={32} width={32} src= './MetaMask_Fox.png' alt='Metamask' />{metaMaskAddress ? 'Disconnect' :'Connect'}</div>
+            <div className="connect connect-nation-id" onClick={handleConnectProvider}><img height={32} width={32} src= './Aadhaar_Logo.png' alt='Metamask' />Connect</div>
+          </div>
+          <div className="connect fetch-proof" onClick={fetchProof}>Fetch Proof</div>
         </div>
       </div>
     </div>
